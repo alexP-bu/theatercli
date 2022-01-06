@@ -4,43 +4,36 @@ public class View {
 	private static Scanner reader = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		/*
-		 * initialize system objects
-		 */
 		Controller controller = new Controller();
 		String command = "";
-		/*
-		* program loop
-		*/
-		printWelcomeMessage();
-		do {
+		welcome();
+		while (!command.equals("exit")){ 
+			System.out.println("Awaiting command...");
 			command = reader.nextLine();
-			System.out.printf("The command you entered is: %s %n", command);
+			System.out.printf("You entered %s %n", command);
+			System.out.println("Evaluating...");
 			controller.interpret(command);
-			System.out.println("Waiting for next command.");
-		} while (!command.equals("exit"));
+		}
 		//exit command was entered, exit the system
 		System.out.println("Goodbye.");
 		reader.close();
 		System.exit(0);
 	}
 
-
 	/*
 	 * method for printing welcome message
 	 */
-	public static void printWelcomeMessage() {
-		for (int i = 0; i < 40; i++) {
-			System.out.print("*");
-		}
-		System.out.println("\n\t\tHello \n\tWelome to TheaterCLI!");
-		for (int i = 0; i < 40; i++) {
-			System.out.print("*");
-		}
-		System.out.println("\n");
-		System.out.println("Logged in as Guest.");
-		System.out.println("To login to an existing account,please enter \"login\".");
-		System.out.println("For a list of all commands, please enter \"help\".");
-		System.out.println("Waiting for command input...\n");
-	}
+	public static void welcome(){
+        StringBuilder stars = new StringBuilder();
+        for(int i = 0; i < 40; i++){
+            stars.append("*");
+        }
+        stars.append("\n");
+        System.out.println(stars);
+        System.out.println("Welcome To TheaterCLI 2.0");
+        System.out.println("A backend CLI theater management system!");
+        System.out.println("For a list of commands, enter \"help\"");
+        System.out.println(stars);
+    }
 }
+
