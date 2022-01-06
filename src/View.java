@@ -19,7 +19,6 @@ public class View {
 		reader.close();
 		System.exit(0);
 	}
-
 	/*
 	 * method for printing welcome message
 	 */
