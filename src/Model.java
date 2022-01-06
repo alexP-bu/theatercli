@@ -101,9 +101,9 @@ public class Model {
     //showtime functions
     public boolean createShowtime(int id){
         if(!showtimes.containsKey(id)){
-            Showtime newShowtime = new ShowtimeBuilder(id).build();
+            Showtime newShowtime = new Showtime.ShowtimeBuilder(id).build();
             showtimes.put(newShowtime.getID(), newShowtime);
-            numShowtimes++;
+            this.numShowtimes++;
             return true;
         }
         return false;
@@ -111,7 +111,7 @@ public class Model {
     public boolean deleteShowtime(int id){
         if(showtimes.containsKey(id)){
             showtimes.remove(id);
-            numShowtimes--;
+            this.numShowtimes--;
             return true;
         }
         return false;
